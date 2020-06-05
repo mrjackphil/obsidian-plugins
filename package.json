@@ -1,13 +1,12 @@
 {
-  "name": "obsidian_addon",
-  "version": "0.0.1",
-  "main": "index.js",
+  "name": "obsidian-plugins",
+  "version": "1.0.0",
   "author": "MrJackphil",
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "watch": "rollup -c rollup.config.js -w"
   },
-  "license": "MIT",
+  "license": "UNLICENSED",
   "devDependencies": {
     "@rollup/plugin-typescript": "^4.1.2",
     "@types/codemirror": "^0.0.95",
