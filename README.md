@@ -5,6 +5,7 @@ That's UNOFFICIAL way to improve your Obsidian experience.
 ## Plugin List
 
 - Jump to links (using `Ctrl+;` hotkey)
+- Toggle TODO (using `Ctrl+Enter` hotkey). No version for volcano.
 
 
 
