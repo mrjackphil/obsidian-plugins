@@ -6,8 +6,7 @@ That's UNOFFICIAL way to improve your Obsidian experience.
 
 - Jump to links (using `Ctrl+;` hotkey)
 - Toggle TODO (using `Ctrl+Enter` hotkey). No version for volcano.
-
-
+- Insert current date (using `Alt+D` hotkey). No version for volcano.
 
 ## How to install plugins
 
