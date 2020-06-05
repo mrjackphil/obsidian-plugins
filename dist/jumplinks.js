@@ -38,43 +38,45 @@ function drawPopovers(links, hotkeys, cmInst) {
     });
 }
 
-var modal = undefined;
-var cancel = undefined;
-function init(app) {
-    document.addEventListener('keydown', initHotkey);
-}
-function initHotkey(ev) {
-    var cmInst = CMInst();
-    if (ev.key === ';' && ev.ctrlKey && !modal && cmInst) {
-        // @ts-ignore
-        var app = window.app;
-        var urls = getUrlsFromText(cmInst);
-        showJumpLetters(app, urls, cmInst);
+(function () {
+    var modal = undefined;
+    var cancel = undefined;
+    function init(app) {
+        document.addEventListener('keydown', initHotkey);
     }
-}
-function showJumpLetters(app, array, cmInst) {
-    var hotkeys = 'abcdefghijklmnopqrstuvwxyz';
-    var hotkeyAr = array.map(function (e, i) { return [i, hotkeys[i]]; });
-    var handleHotkey = function (i) {
-        var pos = cmInst.posFromIndex(array[i][0] + 2);
-        cmInst.setCursor(pos);
-        setTimeout(function () { return app.commands.executeCommandById('editor:follow-link'); }, 100);
-    };
-    // drawLinks(array, hotkeyAr);
-    drawPopovers(array, hotkeyAr, cmInst);
-    cancel = function (ev) {
-        var h = hotkeyAr.filter(function (e) { return e[1] === ev.key; });
-        ev.preventDefault();
-        ev.stopPropagation();
-        ev.stopImmediatePropagation();
-        h.length && handleHotkey(h[0][0]);
-        document.removeEventListener('keydown', cancel);
-        document.querySelectorAll('.jl.popover').forEach(function (e) { return e.remove(); });
-        modal === null || modal === void 0 ? void 0 : modal.remove();
-        modal = null;
-    };
-    document.addEventListener('keydown', cancel);
-    return hotkeyAr;
-}
-// @ts-ignore
-init();
+    function initHotkey(ev) {
+        var cmInst = CMInst();
+        if (ev.key === ';' && ev.ctrlKey && !modal && cmInst) {
+            // @ts-ignore
+            var app = window.app;
+            var urls = getUrlsFromText(cmInst);
+            showJumpLetters(app, urls, cmInst);
+        }
+    }
+    function showJumpLetters(app, array, cmInst) {
+        var hotkeys = 'abcdefghijklmnopqrstuvwxyz';
+        var hotkeyAr = array.map(function (e, i) { return [i, hotkeys[i]]; });
+        var handleHotkey = function (i) {
+            var pos = cmInst.posFromIndex(array[i][0] + 2);
+            cmInst.setCursor(pos);
+            setTimeout(function () { return app.commands.executeCommandById('editor:follow-link'); }, 100);
+        };
+        // drawLinks(array, hotkeyAr);
+        drawPopovers(array, hotkeyAr, cmInst);
+        cancel = function (ev) {
+            var h = hotkeyAr.filter(function (e) { return e[1] === ev.key; });
+            ev.preventDefault();
+            ev.stopPropagation();
+            ev.stopImmediatePropagation();
+            h.length && handleHotkey(h[0][0]);
+            document.removeEventListener('keydown', cancel);
+            document.querySelectorAll('.jl.popover').forEach(function (e) { return e.remove(); });
+            modal === null || modal === void 0 ? void 0 : modal.remove();
+            modal = null;
+        };
+        document.addEventListener('keydown', cancel);
+        return hotkeyAr;
+    }
+    // @ts-ignore
+    init();
+})();
