@@ -1,6 +1,6 @@
 import typescript from '@rollup/plugin-typescript';
 
-const PLUGINS = ['jumplinks'];
+const PLUGINS = ['jumplinks', 'toggleTODO'];
 const VOLCANO_PLUGINS = ['jumplinks'];
 
 const createConfig = (filename) => ({

@@ -1,10 +1,6 @@
-interface ElWithCodeMirror extends HTMLDivElement {
-  CodeMirror: CodeMirror.Editor;
-}
-
-export function CMInst() {
-  const el = document.querySelector('.CodeMirror.CodeMirror-focused') as ElWithCodeMirror;
-  return el && el.CodeMirror;
+export function CMInst(): CodeMirror.Editor {
+  // @ts-ignore
+  return window.app.workspace.activeLeaf.view.sourceMode.cmEditor;
 };
 
 export function getUrlsFromText(cmInst: CodeMirror.Editor) {

@@ -1,8 +1,8 @@
 'use strict';
 
 function CMInst() {
-    var el = document.querySelector('.CodeMirror.CodeMirror-focused');
-    return el && el.CodeMirror;
+    // @ts-ignore
+    return window.app.workspace.activeLeaf.view.sourceMode.cmEditor;
 }
 function getUrlsFromText(cmInst) {
     var rx = /\[\[(.+?)\]\]/g;
