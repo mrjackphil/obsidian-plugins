@@ -12,6 +12,8 @@ That's UNOFFICIAL way to improve your Obsidian experience.
 
 There is no official way to install plugins just yet. Meanwhile we have some options.
 
+![](screenshots/how-to-install.gif)
+
 - Run code in Obsidian's console. Changes are not permanent and will be removed when you close Obsidian window or press `Ctrl+R`. Use files in the root of `dist` folder.
 - Use UNOFFICIAL [plugin injector](https://github.com/kognise/volcano). If you need plugin for this, use files in `dist/volcano` folder.
 
