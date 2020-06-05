@@ -1,0 +1,18 @@
+{
+  "name": "obsidian_addon",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "MrJackphil",
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "watch": "rollup -c rollup.config.js -w"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^4.1.2",
+    "@types/codemirror": "^0.0.95",
+    "rollup": "^2.13.1",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.5"
+  }
+}
